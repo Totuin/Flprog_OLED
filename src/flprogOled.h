@@ -1,5 +1,5 @@
 #pragma once
-#include <Arduino.h>
-#include "flprogUtilites.h"
-#include "RT_HW_OLED.h"
-#include "Chips\flprogSSD1322Chip.h"
+#include "Chips\flprogSSD1322_27Chip.h"
+#include "Base\flprogOledDisplay.h"
+#include "Base\flprogOledScreen.h"
+#include "Base\Widgets\flprogOledWidgets.h"

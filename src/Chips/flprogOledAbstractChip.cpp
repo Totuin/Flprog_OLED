@@ -6,7 +6,7 @@ void FlprogOledAbstractChip::abstractInit()
 
 void FlprogOledAbstractChip::pool()
 {
-  if (!_isInit)
+  if (_status != FLPROG_READY_STATUS)
   {
     _num = RT_HW_oled.addDevice(&_device);
     if (!_num)
@@ -22,11 +22,11 @@ void FlprogOledAbstractChip::pool()
     _device.setMirrorX(_mirrorX);
     _device.setMirrorY(_mirrorY);
     init();
-    _isInit = true;
+    _status = FLPROG_READY_STATUS;
   }
 }
 
-void FlprogOledSpiChip::spiInit()
+void FlprogOledSpiChip::busInit()
 {
   _bus.init(_num);
   _device.sendSizePacket = _sendSizePacket;
