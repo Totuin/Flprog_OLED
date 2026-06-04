@@ -1,18 +1,19 @@
 #pragma once
 #include "flprogUtilites.h"
 #include "RT_HW_OLED.h"
-#include "./Buses/flprogSpiOledBus.h"
+
 
 class FlprogOledAbstractChip : public AbstractFLProgClass
 {
+
 public:
   void setColStart(uint8_t value) { _colStart = value; };
-  void setRowStartt(uint8_t value) { _rowStart = value; };
-  void setColorBGRt(uint8_t value) { colorBGR = value; };
-  void setOffSetX(int16_t offSetX) {};
-  void setOffSetY(int16_t offSetY) {};
-  void setMirrorX(uint8_t en) {};
-  void setMirrorY(uint8_t en) {};
+  void setRowStart(uint8_t value) { _rowStart = value; };
+  void setColorBGRt(uint8_t value) { _colorBGR = value; };
+  void setOffSetX(int16_t offSetX) { _offSetX = offSetX; };
+  void setOffSetY(int16_t offSetY) { _offSetY = offSetY; };
+  void setMirrorX(uint8_t en) { _mirrorX = en; };
+  void setMirrorY(uint8_t en) { _mirrorY = en; };
 
   void setWidth(uint8_t value) { _width = value; };
   void setHeight(uint8_t value) { _height = value; };
@@ -21,23 +22,40 @@ public:
   void setContrast(uint8_t value) { _contrast = value; };
 
   void setExtNum(uint8_t value) { _extNum = value; };
-  uint8_t getExtNum() { return _extNum; };
-  uint8_t getNum() { return _num; };
 
+  uint8_t getColStart() { return _colStart; };
+  uint16_t getRowStart() { return _rowStart; };
+  uint8_t getColorBGR() { return _colorBGR; };
+  int16_t getOffSetX() { return _offSetX; };
+  int16_t getOffSetY() { return _offSetY; };
+  uint8_t getMirrorX() { return _mirrorX; };
+  uint8_t getMirrorY() { return _mirrorY; };
+
+  uint8_t getWidth() { return _width; };
+  uint8_t getHeight() { return _height; };
+  uint16_t getPeriodLimit() { return _periodLimit; };
+  uint16_t getRotation() { return _rotate; };
+  uint8_t getContrast() { return _contrast; };
+
+  uint8_t getExtNum() { return _extNum; };
+  uint8_t getNum() { return _device.num; };
+
+  void sendSizePacket(int32_t value) { _sendSizePacket = value; };
 
   void pool();
 
   RT_HW_OLED_Device _device;
 
 protected:
-  virtual void init() = 0;
+  virtual void init() {};
+  virtual void busInit() {};
+  virtual RT_HW_OLED_Bus *mainBus() { return nullptr; };
   uint8_t _colStart = 0;
   uint16_t _rowStart = 0;
   uint8_t _colorBGR = 0;
   uint16_t _width = 0;
   uint16_t _height = 0;
 
-  uint8_t _num = 0;
   uint8_t _extNum = 100;
 
   uint16_t _periodLimit = 0;
@@ -47,25 +65,5 @@ protected:
   int16_t _offSetY = 0;
   uint8_t _mirrorX = 0;
   uint8_t _mirrorY = 0;
-};
-
-class FlprogOledSpiChip : public FlprogOledAbstractChip
-{
-public:
-  void setPinCs(uint8_t pin) { _bus.setPinCs(pin); };
-  void setPinBlk(uint8_t pin) { _bus.setPinBlk(pin); };
-  void setPinDc(uint8_t pin) { _bus.setPinDc(pin); };
-  void setPinRst(uint8_t pin) { _bus.setPinRst(pin); };
-  void setSpeed(uint32_t value) { _bus.setSpeed(value); };
-  void setDmaMode(bool value) { _dmaMode = value; };
-  void setBus(uint8_t value) { _bus.setBus(value); };
-  void sendSizePacket(int32_t value) { _sendSizePacket = value; };
-
-  FlprogSpiOledBus _bus;
-
-protected:
-  void
-  busInit();
-  bool _dmaMode = false;
   int32_t _sendSizePacket = 0;
 };

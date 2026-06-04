@@ -2,24 +2,14 @@
 
 FlprogOledTextWidget::FlprogOledTextWidget(uint8_t id, int16_t x0, int16_t y0, String txt, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders)
 {
-  _txt = txt;
+  _id = id;
+  _text = txt;
   _x0 = x0;
   _y0 = y0;
   _scale = scale;
   _style = style;
   _colorFigure = colorFigure;
   _colorBorders = colorBorders;
-}
-
-void FlprogOledTextWidget::setInsertPoint(int16_t x, int16_t y)
-{
-  if ((_x0 == x) && (_y0 == y))
-  {
-    return;
-  }
-  _isNeedRepaint = true;
-  _x0 = x;
-  _y0 = y;
 }
 
 void FlprogOledTextWidget::setText(String text)
@@ -52,25 +42,6 @@ void FlprogOledTextWidget::setStyle(uint8_t style)
   _isNeedRepaint = true;
 }
 
-void FlprogOledTextWidget::setColorFigure(uint32_t color)
-{
-  if (_colorFigure == color)
-  {
-    return;
-  }
-  _isNeedRepaint = true;
-  _colorFigure = color;
-}
-
-void FlprogOledTextWidget::setColorBorders(uint32_t color)
-{
-  if (_colorFigure == color)
-  {
-    return;
-  }
-  _isNeedRepaint = true;
-  _colorBorders = color;
-}
 
 void FlprogOledTextWidget::privateDisplayOn(FlprogOledAbstractChip *chip)
 {

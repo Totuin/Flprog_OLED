@@ -20,5 +20,5 @@ public:
 protected:
   FlprogOledAbstractWidget **_widgets = 0;
   uint16_t _widgetsSize = 0;
-  bool _isActive = false;
+  bool _isActive = true;
 };

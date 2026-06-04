@@ -1,6 +1,6 @@
 #pragma once
 #include "flprogUtilites.h"
-#include "flprogOledTextWidget.h"
+#include "../BasicGrapficWidgets/flprogOledTextWidget.h"
 
 #define FLPROG_OLED_INTX_VALUE_MODE 'I'              // -- mode:I-intx
 #define FLPROG_OLED_UINTX_VALUE_MODE 'U'             // -- U-uintx
@@ -26,6 +26,7 @@
 #define FLPROG_OLED_STRING_UPPERCASE_VALUE_MODE 'U'  // -- U-String заглавные буквы
 #define FLPROG_OLED_STRING_LOWERCASE_VALUE_MODE 'L'  // -- L-String прописные буквы
 #define FLPROG_OLED_NOT_CHANDGE_VALUE_MODE 'S'       // -- S-String строка без изменения
+#define FLPROG_OLED_DEFAULT_VALUE_MODE 'N'           // -- N-Использование форматирования по умолчанию
 
 #define FLPROG_OLED_LEFT_ALIGN_VALUE_MODE 'L'   // -- Выравнивание влево
 #define FLPROG_OLED_RIGHT_ALIGN_VALUE_MODE 'R'  // -- Выравнивание вправо
@@ -35,7 +36,7 @@
 class FlprogOledAbstractValueWidget : public FlprogOledAbstractWidget
 {
 public:
-  void setInsertPoint(int16_t x, int16_t y) { _textWidget.setInsertPoint(x, y); };
+  void setStartPoint(int16_t x, int16_t y) { _textWidget.setStartPoint(x, y); };
   void setScale(uint8_t scale) { _textWidget.setScale(scale); };
   void setStyle(uint8_t style) { _textWidget.setStyle(style); };
   void setColorFigure(uint32_t color) { _textWidget.setColorFigure(color); };
@@ -51,7 +52,8 @@ public:
 
 protected:
   void privateDisplayOn(FlprogOledAbstractChip *chip);
- virtual  void setValue() = 0;
+  void initTextWidget(uint8_t id, int16_t x0, int16_t y0, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders);
+  virtual void setValue() = 0;
   uint8_t _length = 0;
   char _align = FLPROG_OLED_NONE_ALIGN_VALUE_MODE;
   char _mode = FLPROG_OLED_NOT_CHANDGE_VALUE_MODE;

@@ -22,9 +22,15 @@ bool FlprogOledDisplay::isNeedRepaint()
     {
       if (_screens[i]->isNeedRepaint())
       {
+        _isShow = true;
         return true;
       }
     }
+  }
+  if (_isShow)
+  {
+    _isShow = false;
+    return true;
   }
   return false;
 }
@@ -39,7 +45,7 @@ void FlprogOledDisplay::setIsNeedRepaint()
   {
     if (_screens[i] != 0)
     {
-      _screens[i]->setIsNeedRepaint()
+      _screens[i]->setIsNeedRepaint();
     }
   }
 }
@@ -59,6 +65,7 @@ void FlprogOledDisplay::setEn(uint8_t value)
 
 void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
 {
+
   if (_screensSize == 0)
   {
     return;
@@ -67,6 +74,7 @@ void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
   {
     return;
   }
+
   chip->_device.direct(_en);
   chip->_device.sendDevice();
   if (chip->_device.runDevice)
@@ -86,4 +94,21 @@ void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
     }
   }
   chip->_device.runDevice = 1;
+}
+
+void FlprogOledDisplay::setScreen(uint16_t index, FlprogOledScreen *screen)
+{
+  if (_screensSize == 0)
+  {
+    return;
+  }
+  if (index >= _screensSize)
+  {
+    return;
+  }
+  if (screen == 0)
+  {
+    return;
+  }
+  _screens[index] = screen;
 }

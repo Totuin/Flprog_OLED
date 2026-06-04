@@ -2,12 +2,8 @@
 
 FlprogOledStringValueWidget::FlprogOledStringValueWidget(uint8_t id, int16_t x0, int16_t y0, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders)
 {
-  setInsertPoint(x0, y0);
-  setScale(scale);
-  setStyle(style);
-  setColorFigure(colorFigure);
-  setColorBorders(colorBorders);
-  _message.str = _str;
+  initTextWidget(id, x0, y0, scale, style, colorFigure, colorBorders);
+  _message.str = _value;
 }
 
 void FlprogOledStringValueWidget::setValue(String value)
