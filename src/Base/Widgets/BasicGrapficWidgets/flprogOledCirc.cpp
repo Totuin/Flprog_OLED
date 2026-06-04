@@ -35,5 +35,5 @@ void FlprogOledCircletWidget::setThickness(uint8_t thickness)
 
 void FlprogOledCircletWidget::privateDisplayOn(FlprogOledAbstractChip *chip)
 {
-  chip->_device.circle(_id, _x0, _y0, _r, _colorFigure, _colorBorders, _thickness);
+  chip->_device.circle(_id, _x0, _y0, _r, _colorBorders, _colorFigure, _thickness);
 }

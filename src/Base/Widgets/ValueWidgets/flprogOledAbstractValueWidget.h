@@ -37,7 +37,16 @@ class FlprogOledAbstractValueWidget : public FlprogOledAbstractWidget
 {
 public:
   void setStartPoint(int16_t x, int16_t y) { _textWidget.setStartPoint(x, y); };
+
+  void setStartPointX(int16_t x) { setStartPoint(x, getStartPointY()); };
+  void setStartPointY(int16_t y) { setStartPoint(getStartPointX(), y); };
+
+  int16_t getStartPointX() { return _textWidget.getStartPointX(); };
+  int16_t getStartPointY() { return _textWidget.getStartPointY(); };
+
   void setScale(uint8_t scale) { _textWidget.setScale(scale); };
+  uint8_t getScale() { return _textWidget.getScale(); };
+
   void setStyle(uint8_t style) { _textWidget.setStyle(style); };
   void setColorFigure(uint32_t color) { _textWidget.setColorFigure(color); };
   void setColorBorders(uint32_t color) { _textWidget.setColorBorders(color); };

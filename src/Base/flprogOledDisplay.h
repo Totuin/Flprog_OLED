@@ -7,7 +7,9 @@ class FlprogOledDisplay : public AbstractFLProgClass
 public:
   FlprogOledDisplay(uint16_t screensSize);
 
-  void setEn(uint8_t value);
+  void setEn(bool value);
+  bool getEn() { return _en; };
+
   bool isNeedRepaint();
   void setIsNeedRepaint();
   void setScreen(uint16_t index, FlprogOledScreen *screen);
@@ -15,7 +17,7 @@ public:
   void displayOn(FlprogOledAbstractChip *chip);
 
 protected:
-  uint8_t _en = 1;
+  bool _en = true;
   FlprogOledScreen **_screens = 0;
   uint16_t _screensSize = 0;
   bool _isShow = false;

@@ -10,6 +10,7 @@ public:
   void setSize(int16_t w, int16_t h);
   void setScale(int8_t scale);
   void setIndex(int16_t index);
+  int16_t getIndex() { return _index; };
 
 protected:
   void privateDisplayOn(FlprogOledAbstractChip *chip);

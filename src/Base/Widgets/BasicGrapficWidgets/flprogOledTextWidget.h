@@ -8,9 +8,12 @@ public:
   FlprogOledTextWidget(uint8_t id, int16_t x0, int16_t y0, String txt, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders);
   FlprogOledTextWidget() {};
 
-  void
-  setText(String text);
+  void setText(String text);
+  String getText() { return _text; };
+
   void setScale(uint8_t scale);
+  uint8_t getScale() { return _scale; };
+
   void setStyle(uint8_t style);
 
 protected:

@@ -50,7 +50,7 @@ void FlprogOledDisplay::setIsNeedRepaint()
   }
 }
 
-void FlprogOledDisplay::setEn(uint8_t value)
+void FlprogOledDisplay::setEn(bool value)
 {
   if (_en == value)
   {
@@ -66,31 +66,38 @@ void FlprogOledDisplay::setEn(uint8_t value)
 void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
 {
 
+  if (!_en)
+  {
+    return;
+  }
   if (_screensSize == 0)
   {
     return;
   }
-  if (!RT_HW_oled.checkDev(chip->getNum()))
+  if (!chip->getNum())
   {
     return;
   }
 
-  chip->_device.direct(_en);
+  // if (!RT_HW_oled.checkDev(chip->getNum()))
+  // {
+  // return;
+  // } 
+  chip->_device.direct(1);
   chip->_device.sendDevice();
-  if (chip->_device.runDevice)
+  if (isNeedRepaint())
   {
-    return;
-  }
-  if (!isNeedRepaint())
-  {
-    return;
-  }
-  chip->_device.clear(0, 0);
-  for (uint16_t i = 0; i < _screensSize; i++)
-  {
-    if (_screens[i] != 0)
+    if (chip->_device.runDevice)
     {
-      _screens[i]->displayOn(chip);
+      return;
+    }
+    chip->_device.clear(0, 0);
+    for (uint16_t i = 0; i < _screensSize; i++)
+    {
+      if (_screens[i] != 0)
+      {
+        _screens[i]->displayOn(chip);
+      }
     }
   }
   chip->_device.runDevice = 1;

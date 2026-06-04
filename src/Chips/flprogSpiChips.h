@@ -133,12 +133,13 @@ protected:
   void init() { _device.setParamDev_SSD1315(_device.num, _extNum); };
 };
 
-// --------------------- Чип ST565 -----------------
+// --------------------- Чип ST7565 -----------------
 class FlprogSpiST7565Chip : public FlprogOledSpiChip
 {
 protected:
   void init() { _device.setParamDev_ST7565(_device.num, _extNum); };
 };
+
 
 // --------------------- Чип ST7920 -----------------
 class FlprogSpiST7920Chip : public FlprogOledSpiChip

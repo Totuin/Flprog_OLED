@@ -15,6 +15,7 @@ public:
   void setIsNeedRepaint();
 
   void isActive(bool value);
+  bool getIsActive() { return _isActive; };
   void displayOn(FlprogOledAbstractChip *chip);
 
 protected:

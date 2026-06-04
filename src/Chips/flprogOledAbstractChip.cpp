@@ -1,14 +1,18 @@
 #include "flprogOledAbstractChip.h"
 
-void FlprogOledAbstractChip::pool()
+void FlprogOledAbstractChip::pool(bool en)
 {
+  if(! en)
+  {
+    return;
+  }
   if (_status != FLPROG_READY_STATUS)
   {
     _device.bus = mainBus();
-    if (!_device.num)
+    if (!_num)
     {
-      RT_HW_oled.addDevice(&_device);
-      if (!_device.num)
+      _num = RT_HW_oled.addDevice(&_device);
+      if (!_num)
       {
         return;
       }

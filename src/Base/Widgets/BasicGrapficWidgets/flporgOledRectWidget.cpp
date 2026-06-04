@@ -39,5 +39,5 @@ void FlprogOledRectWidget::setThickness(uint8_t thickness)
 
 void FlprogOledRectWidget::privateDisplayOn(FlprogOledAbstractChip *chip)
 {
-  chip->_device.rect(_id, _x0, _y0, _x1, _y1, _colorFigure, _colorBorders, _thickness);
+  chip->_device.rect(_id, _x0, _y0, _x1, _y1, _colorBorders, _colorFigure, _thickness);
 }

@@ -9,6 +9,8 @@ public:
 
 
   void setRadius(int16_t r);
+  int16_t getRadius() { return _r; };
+  
   void setThickness(uint8_t thickness);
 
 protected:

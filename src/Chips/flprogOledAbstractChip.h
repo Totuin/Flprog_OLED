@@ -38,11 +38,11 @@ public:
   uint8_t getContrast() { return _contrast; };
 
   uint8_t getExtNum() { return _extNum; };
-  uint8_t getNum() { return _device.num; };
+  uint8_t getNum() { return _num; };
 
   void sendSizePacket(int32_t value) { _sendSizePacket = value; };
 
-  void pool();
+  void pool(bool en);
 
   RT_HW_OLED_Device _device;
 
@@ -55,7 +55,7 @@ protected:
   uint8_t _colorBGR = 0;
   uint16_t _width = 0;
   uint16_t _height = 0;
-
+  uint8_t _num = 0;
   uint8_t _extNum = 100;
 
   uint16_t _periodLimit = 0;

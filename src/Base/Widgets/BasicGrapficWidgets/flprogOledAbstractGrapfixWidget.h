@@ -9,6 +9,11 @@ public:
 
   void setColorBorders(uint32_t color);
   void setStartPoint(int16_t x, int16_t y);
+  void setStartPointX(int16_t x) {  setStartPoint( x, getStartPointY()); };
+  void setStartPointY(int16_t y) { setStartPoint(getStartPointX(), y); };
+
+  int16_t getStartPointX() { return _x0; };
+  int16_t getStartPointY() { return _y0; };
 
 protected:
   int16_t _x0;
