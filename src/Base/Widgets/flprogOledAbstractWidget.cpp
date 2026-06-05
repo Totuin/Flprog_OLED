@@ -6,11 +6,13 @@ bool FlprogOledAbstractWidget::isNeedRepaint()
   {
     return true;
   }
-  if (RT_HW_Base.isTimer(_lastRepaintTime, 1000))
+  
+  if (RT_HW_Base.isTimer(_lastRepaintTime, 1200))
   {
     _isNeedRepaint = true;
     return true;
   }
+    
   return false;
 }
 

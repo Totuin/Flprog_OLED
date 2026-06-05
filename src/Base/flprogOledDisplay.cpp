@@ -78,19 +78,18 @@ void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
   {
     return;
   }
-
-  // if (!RT_HW_oled.checkDev(chip->getNum()))
-  // {
-  // return;
-  // } 
+  if (!RT_HW_oled.checkDev(chip->getNum()))
+  {
+    return;
+  }
   chip->_device.direct(1);
   chip->_device.sendDevice();
+  if (chip->_device.runDevice)
+  {
+    return;
+  }
   if (isNeedRepaint())
   {
-    if (chip->_device.runDevice)
-    {
-      return;
-    }
     chip->_device.clear(0, 0);
     for (uint16_t i = 0; i < _screensSize; i++)
     {
@@ -99,8 +98,9 @@ void FlprogOledDisplay::displayOn(FlprogOledAbstractChip *chip)
         _screens[i]->displayOn(chip);
       }
     }
+    chip->_device.runDevice = 1;
   }
-  chip->_device.runDevice = 1;
+  
 }
 
 void FlprogOledDisplay::setScreen(uint16_t index, FlprogOledScreen *screen)

@@ -2,7 +2,7 @@
 
 void FlprogOledAbstractChip::pool(bool en)
 {
-  if(! en)
+  if (!en)
   {
     return;
   }
@@ -28,6 +28,10 @@ void FlprogOledAbstractChip::pool(bool en)
     _device.setMirrorX(_mirrorX);
     _device.setMirrorY(_mirrorY);
     _device.sendSizePacket = _sendSizePacket;
+    if (_debugCallback != 0)
+    {
+      _debugCallback();
+    }
     _status = FLPROG_READY_STATUS;
   }
 }

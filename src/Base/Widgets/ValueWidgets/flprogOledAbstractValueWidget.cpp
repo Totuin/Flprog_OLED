@@ -63,6 +63,7 @@ void FlprogOledAbstractValueWidget::privateDisplayOn(FlprogOledAbstractChip *chi
 {
   setValue();
  // RT_HW_Base.messFormatFLProg(_message, _length, '~', _align, _prefix, _suffix);
+
   _textWidget.setText(_prefix + _message.str+ _suffix);
   _textWidget.displayOn(chip);
 }

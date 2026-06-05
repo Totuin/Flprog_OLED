@@ -53,6 +53,7 @@ FlprogSpiST7920Chip	KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
+debugCallback	KEYWORD2
 displayOn	KEYWORD2
 getBus	KEYWORD2
 getColStart	KEYWORD2

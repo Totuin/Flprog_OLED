@@ -2,6 +2,7 @@
 #include "flprogUtilites.h"
 #include "RT_HW_OLED.h"
 
+typedef void (*FlprogOledDebugCallback)();
 
 class FlprogOledAbstractChip : public AbstractFLProgClass
 {
@@ -15,8 +16,8 @@ public:
   void setMirrorX(uint8_t en) { _mirrorX = en; };
   void setMirrorY(uint8_t en) { _mirrorY = en; };
 
-  void setWidth(uint8_t value) { _width = value; };
-  void setHeight(uint8_t value) { _height = value; };
+  void setWidth(uint16_t value) { _width = value; };
+  void setHeight(uint16_t value) { _height = value; };
   void setPeriodLimit(uint16_t period) { _periodLimit = period; };
   void setRotation(uint16_t value) { _rotate = value; };
   void setContrast(uint8_t value) { _contrast = value; };
@@ -31,8 +32,8 @@ public:
   uint8_t getMirrorX() { return _mirrorX; };
   uint8_t getMirrorY() { return _mirrorY; };
 
-  uint8_t getWidth() { return _width; };
-  uint8_t getHeight() { return _height; };
+  uint16_t getWidth() { return _width; };
+  uint16_t getHeight() { return _height; };
   uint16_t getPeriodLimit() { return _periodLimit; };
   uint16_t getRotation() { return _rotate; };
   uint8_t getContrast() { return _contrast; };
@@ -44,12 +45,15 @@ public:
 
   void pool(bool en);
 
+  void debugCallback(FlprogOledDebugCallback callback) { _debugCallback = callback; };
+
   RT_HW_OLED_Device _device;
 
 protected:
   virtual void init() {};
   virtual void busInit() {};
   virtual RT_HW_OLED_Bus *mainBus() { return nullptr; };
+  FlprogOledDebugCallback _debugCallback = 0;
   uint8_t _colStart = 0;
   uint16_t _rowStart = 0;
   uint8_t _colorBGR = 0;
