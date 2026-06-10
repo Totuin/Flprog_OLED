@@ -6,7 +6,6 @@ class FlprogOledAbstractGrapficWidget : public FlprogOledAbstractWidget
 {
 public:
   void setColorFigure(uint32_t color);
-
   void setColorBorders(uint32_t color);
   void setStartPoint(int16_t x, int16_t y);
   void setStartPointX(int16_t x) {  setStartPoint( x, getStartPointY()); };

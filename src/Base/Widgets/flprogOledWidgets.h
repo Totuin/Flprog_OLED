@@ -9,7 +9,9 @@
 #include "ValueWidgets\flprogOledStringValueWidget.h"
 #include "ValueWidgets\flprogOledFloatValueWidget.h"
 #include "ValueWidgets\flprogOledNumberValueWidget.h"
+#include "ValueWidgets\flprogOledNumberListValueWidget.h"
+#include "ValueWidgets\flprogOledBooleanIndicatorWidget.h"
 
-//flprogOledWidgets.h
 
- // BasicGrapficWidgets\flporgOledRectWidget.h
+
+  
