@@ -64,7 +64,7 @@ protected:
   void initTextWidget(uint8_t id, int16_t x0, int16_t y0, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders);
   virtual void setValue() = 0;
   uint8_t _length = 0;
-  char _align = FLPROG_OLED_NONE_ALIGN_VALUE_MODE;
+  char _align = FLPROG_OLED_CENTER_ALIGN_VALUE_MODE;
   char _mode = FLPROG_OLED_NOT_CHANDGE_VALUE_MODE;
   String _prefix = "";
   String _suffix = "";

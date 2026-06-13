@@ -13,7 +13,7 @@ void FlprogParallelKS0108OnHC595Chip::busInit()
   _mainBus.setPinCtrl(_pinRs, _pinEn, _pinCs1, _pinRst, _pinCs2, _pinCs3);
   _mainBus.setSpiParam(_pinCs, _bus, 0);
   _mainBus.setChipMap(0, 1, 2);
-  _mainBus.setParamPAR8(_device.num);
+  _mainBus.setParamSEQ8(_device.num);
 }
 
 void FlprogParallelKS0108On2xHC595Chip::busInit()

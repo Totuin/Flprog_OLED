@@ -11,7 +11,5 @@
 #include "ValueWidgets\flprogOledNumberValueWidget.h"
 #include "ValueWidgets\flprogOledNumberListValueWidget.h"
 #include "ValueWidgets\flprogOledBooleanIndicatorWidget.h"
+#include "ValueWidgets\flprogOledGaudeWidget.h"
 
-
-
-  

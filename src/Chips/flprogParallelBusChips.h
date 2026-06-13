@@ -89,7 +89,7 @@ public:
 
   RT_HW_OLED_Bus *mainBus() { return &_mainBus; };
 
-  RT_HW_OLED_PAR8_Bus _mainBus;
+  RT_HW_OLED_SEQ8_Bus _mainBus;
 
 protected:
   void busInit();
