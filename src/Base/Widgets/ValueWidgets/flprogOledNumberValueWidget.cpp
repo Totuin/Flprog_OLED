@@ -5,7 +5,7 @@ FlprogOledNumberValueWidget::FlprogOledNumberValueWidget(uint8_t id, int16_t x0,
   initTextWidget(id, x0, y0, scale, style, colorFigure, colorBorders);
 
   _mode = FLPROG_OLED_UINTX_VALUE_MODE;
-  setValue();
+  privateSetValue();
 }
 
 void FlprogOledNumberValueWidget::setValue(uint32_t value)
@@ -28,7 +28,7 @@ void FlprogOledNumberValueWidget::setVarType(uint8_t value)
   _varType = value;
 }
 
-void FlprogOledNumberValueWidget::setValue()
+void FlprogOledNumberValueWidget::privateSetValue()
 {
   if (_varType == FLPROG_OLED_NUNBER_UINT8_TYPE)
   {
@@ -56,22 +56,24 @@ void FlprogOledNumberValueWidget::setValue()
   }
 }
 
-void FlprogOledNumberValueWidget::setTrueString(String value)
+void FlprogOledNumberValueWidget::setTrueChar(char value)
+
 {
-  if (_trueString.equals(value))
+  if (_message.sign1 == value)
   {
     return;
   }
   _isNeedRepaint = true;
-  _trueString = value;
+  _message.sign1 = value;
 }
 
-void FlprogOledNumberValueWidget::setFalseString(String value)
+void FlprogOledNumberValueWidget::setFalseChar(char value)
 {
-  if (_falseString.equals(value))
+  if (_message.sign0 == value)
   {
     return;
   }
   _isNeedRepaint = true;
-  _falseString = value;
+  _message.sign0 = value;
 }
+

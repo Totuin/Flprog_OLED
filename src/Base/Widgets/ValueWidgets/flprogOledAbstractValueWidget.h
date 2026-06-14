@@ -36,13 +36,13 @@
 class FlprogOledAbstractValueWidget : public FlprogOledAbstractWidget
 {
 public:
-  void setStartPoint(int16_t x, int16_t y) { _textWidget.setStartPoint(x, y); };
+  void setStartPoint(int16_t x, int16_t y);
 
   void setStartPointX(int16_t x) { setStartPoint(x, getStartPointY()); };
   void setStartPointY(int16_t y) { setStartPoint(getStartPointX(), y); };
 
-  int16_t getStartPointX() { return _textWidget.getStartPointX(); };
-  int16_t getStartPointY() { return _textWidget.getStartPointY(); };
+  int16_t getStartPointX() { return _x; };
+  int16_t getStartPointY() { return _y; };
 
   void setScale(uint8_t scale) { _textWidget.setScale(scale); };
   uint8_t getScale() { return _textWidget.getScale(); };
@@ -62,7 +62,14 @@ public:
 protected:
   void privateDisplayOn(FlprogOledAbstractChip *chip);
   void initTextWidget(uint8_t id, int16_t x0, int16_t y0, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders);
-  virtual void setValue() = 0;
+  virtual void privateSetValue() = 0;
+  void calculatePositions();
+
+  uint16_t _valueX;
+  uint16_t _suffixX;
+  uint16_t _x;
+  uint16_t _y;
+
   uint8_t _length = 0;
   char _align = FLPROG_OLED_CENTER_ALIGN_VALUE_MODE;
   char _mode = FLPROG_OLED_NOT_CHANDGE_VALUE_MODE;

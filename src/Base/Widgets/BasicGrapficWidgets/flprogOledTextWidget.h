@@ -15,6 +15,7 @@ public:
   uint8_t getScale() { return _scale; };
 
   void setStyle(uint8_t style);
+  uint8_t getStyle() { return _style; };
 
 protected:
   void privateDisplayOn(FlprogOledAbstractChip *chip);

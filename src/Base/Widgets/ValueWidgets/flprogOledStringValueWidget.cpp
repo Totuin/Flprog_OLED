@@ -16,7 +16,7 @@ void FlprogOledStringValueWidget::setValue(String value)
   _value = value;
 }
 
-void FlprogOledStringValueWidget::setValue()
+void FlprogOledStringValueWidget::privateSetValue()
 {
   RT_HW_Base.messSetVar(_message, _value, _mode);
 }

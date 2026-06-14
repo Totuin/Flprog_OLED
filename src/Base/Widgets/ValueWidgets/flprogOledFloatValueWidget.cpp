@@ -5,7 +5,7 @@ FlprogOledFloatValueWidget::FlprogOledFloatValueWidget(uint8_t id, int16_t x0, i
   initTextWidget(id, x0, y0, scale, style, colorFigure, colorBorders);
 
   _mode = FLPROG_OLED_FLOAT_2_VALUE_MODE;
-  setValue();
+  privateSetValue();
 }
 
 void FlprogOledFloatValueWidget::setValue(float value)
@@ -18,7 +18,7 @@ void FlprogOledFloatValueWidget::setValue(float value)
   _value = value;
 }
 
-void FlprogOledFloatValueWidget::setValue()
+void FlprogOledFloatValueWidget::privateSetValue()
 {
   RT_HW_Base.messSetVar(_message, _value, _mode);
 }

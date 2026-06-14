@@ -7,10 +7,10 @@ FlprogOledAbstractListValueWidget::FlprogOledAbstractListValueWidget(uint8_t id,
   initTextWidget(id, x0, y0, scale, style, colorFigure, colorBorders);
   _listSize = listSize;
   _mode = FLPROG_OLED_UINTX_VALUE_MODE;
-  setValue();
+  privateSetValue();
 }
 
-void FlprogOledAbstractListValueWidget::setValue()
+void FlprogOledAbstractListValueWidget::privateSetValue()
 {
   RT_HW_Base.messSetVar(_message, _currentText, _mode);
 }

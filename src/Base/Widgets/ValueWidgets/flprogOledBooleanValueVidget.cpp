@@ -5,7 +5,7 @@ FlprogOledBooleanValueWidget::FlprogOledBooleanValueWidget(uint8_t id, int16_t x
   initTextWidget(id, x0, y0, scale, style, colorFigure, colorBorders);
 
   _mode = FLPROG_OLED_NOT_CHANDGE_VALUE_MODE;
-  setValue();
+  privateSetValue();
 }
 
 void FlprogOledBooleanValueWidget::setValue(bool value)
@@ -38,7 +38,7 @@ void FlprogOledBooleanValueWidget::setFalseString(String value)
   _falseString = value;
 }
 
-void FlprogOledBooleanValueWidget::setValue()
+void FlprogOledBooleanValueWidget::privateSetValue()
 {
   if (_value)
   {

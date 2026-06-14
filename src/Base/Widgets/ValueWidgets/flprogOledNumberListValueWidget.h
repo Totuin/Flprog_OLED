@@ -9,7 +9,7 @@ public:
   FlprogOledAbstractListValueWidget(uint8_t id, int16_t x0, int16_t y0, uint8_t scale, uint8_t style, uint32_t colorFigure, uint32_t colorBorders, uint16_t listSize = 2);
 
 protected:
-  void setValue();
+  void privateSetValue();
   uint16_t _listSize;
   String _currentText = "";
 };

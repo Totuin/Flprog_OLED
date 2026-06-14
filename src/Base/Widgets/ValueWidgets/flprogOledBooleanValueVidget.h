@@ -11,7 +11,7 @@ public:
   void setFalseString(String value);
 
 protected:
-  void setValue();
+  void privateSetValue();
   String _trueString = "+";
   String _falseString = "-";
   bool _value = false;

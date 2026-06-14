@@ -9,7 +9,7 @@ public:
   void setValue(String value);
 
 protected:
-  void setValue();
+  void privateSetValue();
 
   String _value = "";
 };

@@ -9,7 +9,7 @@ public:
   void setValue(float value);
 
 protected:
-  void setValue();
+  void privateSetValue();
 
   float _value = 0;
 };

@@ -16,13 +16,12 @@ public:
   void setValue(uint32_t value);
   void setVarType(uint8_t value);
 
-  void setTrueString(String value);
-  void setFalseString(String value);
+  void setTrueChar(char value);
+  void setFalseChar(char value);
 
 protected:
-  void   setValue();
-  String _trueString = "+";
-  String _falseString = "-";
+  void privateSetValue();
+
   uint8_t _varType = FLPROG_OLED_NUNBER_UINT32_TYPE;
   uint32_t _value = 0;
 };
