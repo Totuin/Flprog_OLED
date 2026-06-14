@@ -96,7 +96,6 @@ getPinD4	KEYWORD2
 getPinD5	KEYWORD2
 getPinD6	KEYWORD2
 getPinD7	KEYWORD2
-getPinDc	KEYWORD2
 getPinEn	KEYWORD2
 getPinRs	KEYWORD2
 getPinRst	KEYWORD2
@@ -107,6 +106,7 @@ getScale	KEYWORD2
 getSpeed	KEYWORD2
 getStartPointX	KEYWORD2
 getStartPointY	KEYWORD2
+getStyle	KEYWORD2
 getText	KEYWORD2
 getWidth	KEYWORD2
 isActive	KEYWORD2
@@ -134,6 +134,7 @@ setEndPointY	KEYWORD2
 setExtNum	KEYWORD2
 setExtensionAddress	KEYWORD2
 setExtensionChanel	KEYWORD2
+setFalseChar	KEYWORD2
 setFalseString	KEYWORD2
 setFalseText	KEYWORD2
 setFillColorForFalse	KEYWORD2
@@ -164,7 +165,6 @@ setPinD4	KEYWORD2
 setPinD5	KEYWORD2
 setPinD6	KEYWORD2
 setPinD7	KEYWORD2
-setPinDc	KEYWORD2
 setPinEn	KEYWORD2
 setPinRs	KEYWORD2
 setPinRst	KEYWORD2
@@ -184,6 +184,7 @@ setSuffix	KEYWORD2
 setText	KEYWORD2
 setTextItem	KEYWORD2
 setThickness	KEYWORD2
+setTrueChar	KEYWORD2
 setTrueString	KEYWORD2
 setTrueText	KEYWORD2
 setValue	KEYWORD2
