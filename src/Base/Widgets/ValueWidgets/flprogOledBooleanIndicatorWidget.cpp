@@ -10,6 +10,10 @@ void FlprogOledAbstractBooleanIndicatorWidget::setValue(bool value)
   }
   _isNeedRepaint = true;
   _value = value;
+}
+
+void FlprogOledAbstractBooleanIndicatorWidget::setCurrentColor()
+{
   if (_value)
   {
     _colorFigure = _colorForTrue;
@@ -24,26 +28,43 @@ void FlprogOledAbstractBooleanIndicatorWidget::setValue(bool value)
 
 void FlprogOledAbstractBooleanIndicatorWidget::setColorForTrue(uint32_t color)
 {
+  if (_colorForTrue == color)
+  {
+    return;
+  }
+  _isNeedRepaint = true;
   _colorForTrue = color;
-  setValue(_value);
 }
 
 void FlprogOledAbstractBooleanIndicatorWidget::setColorForFalse(uint32_t color)
 {
+
+  if (_colorForFalse == color)
+  {
+    return;
+  }
+  _isNeedRepaint = true;
   _colorForFalse = color;
-  setValue(_value);
 }
 
 void FlprogOledAbstractBooleanIndicatorWidget::setFillColorForTrue(uint32_t color)
 {
+  if (_fillColorForTrue == color)
+  {
+    return;
+  }
+  _isNeedRepaint = true;
   _fillColorForTrue = color;
-  setValue(_value);
 }
 
 void FlprogOledAbstractBooleanIndicatorWidget::setFillColorForFalse(uint32_t color)
 {
+  if (_fillColorForFalse == color)
+  {
+    return;
+  }
+  _isNeedRepaint = true;
   _fillColorForFalse = color;
-  setValue(_value);
 }
 
 void FlprogOledAbstractBooleanIndicatorWidget::setThickness(uint8_t thickness)
@@ -81,6 +102,10 @@ void FlprogOledRectBooleanIndicatorWidget::setEndPoint(int16_t x, int16_t y)
 
 void FlprogOledRectBooleanIndicatorWidget::privateDisplayOn(FlprogOledAbstractChip *chip)
 {
+  if (_isNeedRepaint)
+  {
+    setCurrentColor();
+  }
   chip->_device.rect(_id, _x0, _y0, _x1, _y1, _colorBorders, _colorFigure, _thickness);
 }
 
@@ -107,5 +132,9 @@ void FlprogOledCircleBooleanIndicatorWidget::setRadius(int16_t r)
 
 void FlprogOledCircleBooleanIndicatorWidget::privateDisplayOn(FlprogOledAbstractChip *chip)
 {
+  if (_isNeedRepaint)
+  {
+    setCurrentColor();
+  }
   chip->_device.circle(_id, _x0, _y0, _r, _colorBorders, _colorFigure, _thickness);
 }

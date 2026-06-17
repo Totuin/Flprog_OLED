@@ -45,7 +45,10 @@ public:
 
   void pool(bool en);
 
-  void debugCallback(FlprogOledDebugCallback callback) { _debugCallback = callback; };
+  void firstDebugCallback(FlprogOledDebugCallback callback) { _firstDebugCallback = callback; };
+  void secondDebugCallback(FlprogOledDebugCallback callback) { _secondDebugCallback = callback; };
+
+  void setMode(uint8_t mode) { _mode = mode; };
 
   RT_HW_OLED_Device _device;
 
@@ -53,7 +56,8 @@ protected:
   virtual void init() {};
   virtual void busInit() {};
   virtual RT_HW_OLED_Bus *mainBus() { return nullptr; };
-  FlprogOledDebugCallback _debugCallback = 0;
+  FlprogOledDebugCallback _firstDebugCallback = 0;
+  FlprogOledDebugCallback _secondDebugCallback = 0;
   uint8_t _colStart = 0;
   uint16_t _rowStart = 0;
   uint8_t _colorBGR = 0;
@@ -70,4 +74,5 @@ protected:
   uint8_t _mirrorX = 0;
   uint8_t _mirrorY = 0;
   int32_t _sendSizePacket = 0;
+  uint8_t _mode = 0;
 };

@@ -93,6 +93,16 @@ protected:
   void init() { _device.setParamDev_SH1106(_device.num, _extNum); };
 };
 
+// --------------------- Чип SH1107 -----------------
+class FlprogSpiSH1107Chip : public FlprogOledSpiChip
+{
+public:
+  using FlprogOledSpiChip::FlprogOledSpiChip;
+
+protected:
+  void init() { _device.setParamDev_SH1106(_device.num, _extNum); };
+};
+
 // --------------------- Чип SSD1306 -----------------
 class FlprogSpiSSD1306Chip : public FlprogOledSpiChip
 {
@@ -200,6 +210,16 @@ protected:
 
 // --------------------- Чип ST7789 -----------------
 class FlprogSpiST7789Chip : public FlprogOledSpiChip
+{
+public:
+  using FlprogOledSpiChip::FlprogOledSpiChip;
+
+protected:
+  void init() { _device.setParamDev_ST7789(_device.num, _extNum); };
+};
+
+// --------------------- Чип ST7796 -----------------
+class FlprogSpiST7796Chip : public FlprogOledSpiChip
 {
 public:
   using FlprogOledSpiChip::FlprogOledSpiChip;

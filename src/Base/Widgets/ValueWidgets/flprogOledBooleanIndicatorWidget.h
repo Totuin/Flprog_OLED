@@ -13,6 +13,7 @@ public:
   void setThickness(uint8_t thickness);
 
 protected:
+  void setCurrentColor();
   uint32_t _colorForTrue = RT_HW_OLED_FILL_WHITE;
   uint32_t _colorForFalse = RT_HW_OLED_FILL_WHITE;
   uint32_t _fillColorForTrue = RT_HW_OLED_FILL_WHITE;

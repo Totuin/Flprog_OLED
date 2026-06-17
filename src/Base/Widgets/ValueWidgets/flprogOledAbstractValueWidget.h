@@ -65,6 +65,8 @@ protected:
   virtual void privateSetValue() = 0;
   void calculatePositions();
 
+
+
   uint16_t _valueX;
   uint16_t _suffixX;
   uint16_t _x;

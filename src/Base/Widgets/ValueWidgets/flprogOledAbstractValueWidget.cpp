@@ -82,8 +82,7 @@ void FlprogOledAbstractValueWidget::privateDisplayOn(FlprogOledAbstractChip *chi
 
 void FlprogOledAbstractValueWidget::calculatePositions()
 {
-
-  if (_message.str.length() > _length)
+  if (RT_HW_Base.getLenUTF8(_message.str) > _length)
   {
     _message.str.remove(_length); //--Усечение ссобщения сзади до заданной длины size;
   }
@@ -98,17 +97,17 @@ void FlprogOledAbstractValueWidget::calculatePositions()
   }
   sumbolWidth = sumbolWidth * _textWidget.getScale();
   int16_t valueWidth = _length * sumbolWidth;
-  int16_t prefixWidth = _prefix.length() * sumbolWidth;
+  int16_t prefixWidth = RT_HW_Base.getLenUTF8(_prefix) * sumbolWidth;
   _suffixX = valueWidth + prefixWidth + _x;
   if (_align == FLPROG_OLED_CENTER_ALIGN_VALUE_MODE)
   {
-    int16_t offset = ((_length - _message.str.length()) * sumbolWidth) / 2;
+    int16_t offset = ((_length - RT_HW_Base.getLenUTF8(_message.str)) * sumbolWidth) / 2;
     _valueX = prefixWidth + _x + offset;
     return;
   }
   if (_align == FLPROG_OLED_RIGHT_ALIGN_VALUE_MODE)
   {
-    _valueX = _suffixX - (_message.str.length() * sumbolWidth);
+    _valueX = _suffixX - (RT_HW_Base.getLenUTF8(_message.str) * sumbolWidth);
     return;
   }
   _valueX = _x + prefixWidth;
@@ -136,3 +135,4 @@ void FlprogOledAbstractValueWidget::initTextWidget(uint8_t id, int16_t x0, int16
   _textWidget.setColorFigure(colorFigure);
   _textWidget.setColorBorders(colorBorders);
 }
+

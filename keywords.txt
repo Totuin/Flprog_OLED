@@ -6,6 +6,7 @@
 #######################################
 FlprogI2cCH1115Chip	KEYWORD1
 FlprogI2cSH1106Chip	KEYWORD1
+FlprogI2cSH1107Chip	KEYWORD1
 FlprogI2cSSD1306Chip	KEYWORD1
 FlprogI2cSSD1309Chip	KEYWORD1
 FlprogI2cSSD1312Chip	KEYWORD1
@@ -49,6 +50,7 @@ FlprogSpiILI9225Chip	KEYWORD1
 FlprogSpiILI9341Chip	KEYWORD1
 FlprogSpiILI9486Chip	KEYWORD1
 FlprogSpiSH1106Chip	KEYWORD1
+FlprogSpiSH1107Chip	KEYWORD1
 FlprogSpiSSD1306Chip	KEYWORD1
 FlprogSpiSSD1309Chip	KEYWORD1
 FlprogSpiSSD1312Chip	KEYWORD1
@@ -56,13 +58,14 @@ FlprogSpiSSD1315Chip	KEYWORD1
 FlprogSpiST7565Chip	KEYWORD1
 FlprogSpiST7735Chip	KEYWORD1
 FlprogSpiST7789Chip	KEYWORD1
+FlprogSpiST7796Chip	KEYWORD1
 FlprogSpiST7920Chip	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-debugCallback	KEYWORD2
 displayOn	KEYWORD2
+firstDebugCallback	KEYWORD2
 getBus	KEYWORD2
 getColStart	KEYWORD2
 getColorBGR	KEYWORD2
@@ -113,6 +116,7 @@ isActive	KEYWORD2
 isNeedRepaint	KEYWORD2
 mainBus	KEYWORD2
 pool	KEYWORD2
+secondDebugCallback	KEYWORD2
 sendSizePacket	KEYWORD2
 setAdress	KEYWORD2
 setAlign	KEYWORD2

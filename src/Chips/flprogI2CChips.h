@@ -21,14 +21,13 @@ public:
   RT_HW_OLED_I2C_Bus _mainBus;
 
 protected:
-  void busInit() { _mainBus.setParamI2C(_device.num, _address, _bus, _exAddress, _exChanel, _speed); };
+  void busInit();
 
   uint8_t _address = 255;
   uint32_t _speed = 400000;
   uint8_t _exAddress = 0;
   uint8_t _exChanel = 0;
   uint8_t _bus = 0;
-
 };
 
 // --------------------- Чип CH1107 -----------------
@@ -53,6 +52,16 @@ protected:
 
 // --------------------- Чип SH1106 -----------------
 class FlprogI2cSH1106Chip : public FlprogOledI2cChip
+{
+public:
+  using FlprogOledI2cChip::FlprogOledI2cChip;
+
+protected:
+  void init() { _device.setParamDev_SH1106(_device.num, _extNum); };
+};
+
+// --------------------- Чип SH1107 -----------------
+class FlprogI2cSH1107Chip : public FlprogOledI2cChip
 {
 public:
   using FlprogOledI2cChip::FlprogOledI2cChip;

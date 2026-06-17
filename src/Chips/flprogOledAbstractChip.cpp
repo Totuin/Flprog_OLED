@@ -20,6 +20,11 @@ void FlprogOledAbstractChip::pool(bool en)
     busInit();
     _device.setPeriodLimit(_periodLimit);
     _device.setScreenSize(_width, _height);
+    _device.modeScreen = _mode;
+    if (_firstDebugCallback != 0)
+    {
+      _firstDebugCallback();
+    }
     init();
     _device.setRotation(_rotate);
     _device.setContrast(_contrast);
@@ -27,11 +32,11 @@ void FlprogOledAbstractChip::pool(bool en)
     _device.setOffSetY(_offSetY);
     _device.setMirrorX(_mirrorX);
     _device.setMirrorY(_mirrorY);
-    _device.sendSizePacket = _sendSizePacket;
-    if (_debugCallback != 0)
+    if (_secondDebugCallback != 0)
     {
-      _debugCallback();
+      _secondDebugCallback();
     }
     _status = FLPROG_READY_STATUS;
   }
 }
+
