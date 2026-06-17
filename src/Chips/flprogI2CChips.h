@@ -67,7 +67,7 @@ public:
   using FlprogOledI2cChip::FlprogOledI2cChip;
 
 protected:
-  void init() { _device.setParamDev_SH1106(_device.num, _extNum); };
+  void init() { _device.setParamDev_SH1107(_device.num, _extNum); };
 };
 
 // --------------------- Чип SSD1306 -----------------
