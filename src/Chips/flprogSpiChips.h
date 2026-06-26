@@ -225,5 +225,5 @@ public:
   using FlprogOledSpiChip::FlprogOledSpiChip;
 
 protected:
-  void init() { _device.setParamDev_ST7789(_device.num, _extNum); };
+  void init() { _device.setParamDev_ST7796(_device.num, _extNum); };
 };
